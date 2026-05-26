@@ -1,0 +1,14 @@
+streamlit>=1.32.0
+requests>=2.31.0
+plotly>=5.18.0
+pandas>=2.1.0
+markdown>=3.5.0
+# Voice-to-text (local / DSGVO-konform)
+openai-whisper>=20231117
+streamlit-mic-recorder>=0.0.4
+psutil>=5.9.0
+reportlab>=4.2.0
+# torch is a large dependency pulled in by openai-whisper (~2 GB).
+# Install separately first if you want to choose CPU vs. CUDA build:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+# ffmpeg must also be available on PATH (used by Whisper for audio decoding).

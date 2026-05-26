@@ -1,0 +1,56 @@
+DERIVED_GENERATION_KEYS = {
+    "generated_report": None,
+    "generated_report_hash": "",
+    "generated_report_source": "",
+    "corrected_report": "",
+    "final_report": "",
+    "report_status": "Draft",
+    "report_validation_result": None,
+    "report_validation_errors": [],
+    "report_guard_warnings": [],
+    "icd10_suggestions": [],
+    "icd10_search_query": "",
+    "icd10_duration_sec": 0,
+    "icd10_hash": "",
+    "billing_suggestions": [],
+    "billing_potential": {},
+    "billing_total_min": 0,
+    "billing_total_max": 0,
+    "billing_hash": "",
+    "detected_clinical_actions": [],
+    "exported_pdf_path": "",
+    "exported_pdf_bytes": None,
+    "exported_pdf_file_name": "",
+    "exported_pdf_hash": "",
+    "approved_pdf_path": "",
+    "pdf_download_ready": False,
+    "pdf_export_duration_sec": 0,
+    "last_exported_report_hash": "",
+    "approved_report_id": None,
+    "approved_at": "",
+    "approval_status": "",
+    "saved_to_database": False,
+    "time_manual_estimate_sec": 0,
+    "time_ai_workflow_sec": 0,
+    "time_saved_sec": 0,
+    "time_savings_assumptions": [],
+    "time_savings_hash": "",
+    "time_savings_status": "",
+    "generation_duration_sec": 0,
+    "coding_duration_sec": 0,
+    "billing_duration_sec": 0,
+    "total_ai_workflow_duration_sec": 0,
+    "generation_progress": 0,
+    "generation_stage": "",
+    "last_generation_error": "",
+    "success_message": "",
+    "warning_message": "",
+}
+
+
+def reset_generation_state(session_state) -> None:
+    for key, value in DERIVED_GENERATION_KEYS.items():
+        if isinstance(value, (list, dict)):
+            session_state[key] = value.copy()
+        else:
+            session_state[key] = value
