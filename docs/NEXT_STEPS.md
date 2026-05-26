@@ -89,7 +89,7 @@ Report sanitization is now consolidated in `validation/final_report_guard.py`.
 ## Immediate next actions
 
 1. **Next PR:** Phase 3 structure improvements (see [ROADMAP.md](ROADMAP.md))
-2. Consider adding `__init__.py` to `validation/` and `state/` for package consistency
+2. **Done:** Added `__init__.py` to `validation/` and `state/` for package consistency
 3. **Ongoing:** Log completed work in [PROGRESS.md](PROGRESS.md); log failed experiments in [FAILED_ATTEMPTS.md](FAILED_ATTEMPTS.md)
 
 ---

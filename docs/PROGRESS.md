@@ -27,6 +27,18 @@ Dated record of **completed** milestones. For planned work, see [ROADMAP.md](ROA
 
 ---
 
+## 2026-05-26 — Phase 3.1 package consistency
+
+**What we did**
+
+- Added `validation/__init__.py` and `state/__init__.py` so those directories are importable as packages consistently.
+
+**Related**
+
+- [ROADMAP.md](ROADMAP.md) Phase 3, Step 3.1
+
+---
+
 ## 2026-05-26 — Phase 1 repo hygiene
 
 **What we did**

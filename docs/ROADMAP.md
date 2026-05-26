@@ -44,9 +44,9 @@ This is the committed step-by-step plan. GitHub issues/boards track individual t
 
 ## Phase 3 — Structure and maintainability
 
-| Step | Action |
-|------|--------|
-| 3.1 | Add `__init__.py` to `validation/` and `state/` for consistency |
+| Step | Action | Status |
+|------|--------|--------|
+| 3.1 | Add `__init__.py` to `validation/` and `state/` for consistency | Done |
 | 3.2 | Move generation orchestration out of `app.py` (e.g. `workflows/generation.py`) |
 | 3.3 | Externalize theme CSS from `theme/theme.py` to a static file |
 | 3.4 | Move GKV/PKV provider lists to `data/` JSON |
