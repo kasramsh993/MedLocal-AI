@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Local-only docs (private scratch — see docs/_local/README.md)
+docs/_local/*
+!docs/_local/README.md
+
+# Runtime / generated data (never commit patient or demo exports)
+data/medlocal.db
+data/*.db
+
+# Exported PDFs and other report outputs
+exports/reports/*.pdf
+
+# Baseline snapshots / freeze bundles (local backups only)
+_freeze/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temp files
+*.log
+*.tmp
+.cache/
