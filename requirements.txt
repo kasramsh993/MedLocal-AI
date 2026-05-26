@@ -1,13 +1,14 @@
-streamlit>=1.32.0
-requests>=2.31.0
-plotly>=5.18.0
-pandas>=2.1.0
-markdown>=3.5.0
+# Pinned for reproducible installs (Phase 1). Tested with Python 3.11–3.12.
+streamlit==1.57.0
+requests==2.34.2
+plotly==6.7.0
+pandas==3.0.3
+markdown==3.10.2
 # Voice-to-text (local / DSGVO-konform)
-openai-whisper>=20231117
-streamlit-mic-recorder>=0.0.4
-psutil>=5.9.0
-reportlab>=4.2.0
+openai-whisper==20250625
+streamlit-mic-recorder==0.0.8
+psutil==7.2.2
+reportlab==4.5.1
 # torch is a large dependency pulled in by openai-whisper (~2 GB).
 # Install separately first if you want to choose CPU vs. CUDA build:
 #   pip install torch --index-url https://download.pytorch.org/whl/cpu

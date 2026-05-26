@@ -7,7 +7,7 @@ This is the committed step-by-step plan. GitHub issues/boards track individual t
 
 ---
 
-## Phase 0 — Repository foundation ✅ (in progress)
+## Phase 0 — Repository foundation ✅
 
 | Step | Action | Status |
 |------|--------|--------|
@@ -15,18 +15,18 @@ This is the committed step-by-step plan. GitHub issues/boards track individual t
 | 0.2 | Initialize git repository | Done |
 | 0.3 | Add `docs/` structure and populate core documents | Done |
 | 0.4 | Initial commit: `.gitignore` + `docs/` only | Done |
-| 0.5 | Connect GitHub remote and push `main` | **You** — add remote URL, then push |
+| 0.5 | Connect GitHub remote and push `main` | Done |
 
 ---
 
-## Phase 1 — Repo hygiene (no behavior change)
+## Phase 1 — Repo hygiene (no behavior change) ✅
 
-| Step | Action |
-|------|--------|
-| 1.1 | Confirm `data/medlocal.db` and `exports/reports/*.pdf` stay untracked |
-| 1.2 | Remove or relocate `_freeze/` baseline bundles from active development |
-| 1.3 | Add `.env.example` if environment variables are introduced |
-| 1.4 | Pin or narrow `requirements.txt` versions for reproducible installs |
+| Step | Action | Status |
+|------|--------|--------|
+| 1.1 | Confirm `data/medlocal.db` and `exports/reports/*.pdf` stay untracked | Done |
+| 1.2 | Remove or relocate `_freeze/` baseline bundles from active development | Done (folder removed) |
+| 1.3 | Add `.env.example` if environment variables are introduced | Done |
+| 1.4 | Pin or narrow `requirements.txt` versions for reproducible installs | Done |
 
 ---
 

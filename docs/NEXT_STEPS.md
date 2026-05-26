@@ -40,11 +40,12 @@ MedLocal AI is **reasonably organized for a Streamlit PoC**, not a chaotic proto
 - [x] `docs/` structure and master [ROADMAP.md](ROADMAP.md)
 - [x] Git repository initialized; first commit scoped to docs + gitignore
 
-#### P1 — Next (no behavior change)
+#### P1 — Repo hygiene ✅ (2026-05-26)
 
-- [ ] Connect GitHub remote and push `main`
-- [ ] Verify ignored files are not staged (`git status` clean except source)
-- [ ] Remove `_freeze/` from day-to-day workflow (keep backups outside repo if needed)
+- [x] Connect GitHub remote and push `main`
+- [x] Verify ignored files are not staged (`data/medlocal.db`, `exports/reports/*.pdf`)
+- [x] Remove `_freeze/` from project tree
+- [x] Add `.env.example`, pin `requirements.txt`, `data/README.md`, `exports/reports/.gitkeep`
 
 #### P2 — Code cleanup (small, safe PRs)
 

@@ -33,7 +33,7 @@ docs/_local/*
 data/medlocal.db
 data/*.db
 
-# Exported PDFs and other report outputs
+# Exported PDFs (keep exports/reports/.gitkeep for empty dir on clone)
 exports/reports/*.pdf
 
 # Baseline snapshots / freeze bundles (local backups only)
