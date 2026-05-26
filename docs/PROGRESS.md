@@ -4,6 +4,29 @@ Dated record of **completed** milestones. For planned work, see [ROADMAP.md](ROA
 
 ---
 
+## 2026-05-26 — Phase 2 dead-code cleanup
+
+**What we did**
+
+- Removed unused imports in `app.py` tied to retired generation/prompt/cleaning paths
+- Removed unused `_report_is_bad()` helper from `app.py`
+- Deleted orphan/retired modules:
+  - `generation/context_builder.py`
+  - `generation/fallback_report.py`
+  - `templates/prompts.py`
+  - `utils/report_cleaning.py`
+  - `utils/medical_codes.py`
+- Kept behavior by moving `SPECIALTY_ICONS` into `components/input_panel.py`
+- Consolidated sanitization path on `validation/final_report_guard.py`
+- Verified no remaining references to removed modules/symbols
+
+**Related**
+
+- [ROADMAP.md](ROADMAP.md) Phase 2
+- [NEXT_STEPS.md](NEXT_STEPS.md) P2 section
+
+---
+
 ## 2026-05-26 — Phase 1 repo hygiene
 
 **What we did**

@@ -6,7 +6,6 @@ from streamlit_mic_recorder import mic_recorder
 
 from i18n import t
 from state.reset import reset_generation_state
-from utils.medical_codes import SPECIALTY_ICONS
 from utils.text_cleaning import clean_transcript_text
 from utils.time_savings import format_duration
 from utils.whisper_client import transcribe_audio
@@ -22,6 +21,15 @@ SPECIALTIES = [
 ]
 
 TONE_VALUES = ["short_concise", "detailed", "patient_friendly"]
+
+SPECIALTY_ICONS = {
+    "Allgemeinmedizin": "AM",
+    "Urologie": "UR",
+    "Zahnmedizin": "ZM",
+    "Kardiologie": "KA",
+    "Dermatologie": "DE",
+    "Orthopädie": "OR",
+}
 
 
 def tone_label(value: str, lang: str) -> str:

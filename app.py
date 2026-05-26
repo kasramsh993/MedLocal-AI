@@ -19,24 +19,20 @@ from components.progress_indicator import run_generation_flow
 from components.system_health import render_system_health
 from exports.pdf_export import build_pdf_file_name, build_report_pdf_bytes, export_report_to_pdf
 from generation.clinical_extractor import extract_clinical_sections
-from generation.context_builder import build_generation_context
-from generation.fallback_report import build_insurance_ready_fallback_report
 from generation.input_builder import build_normalized_clinical_input
 from generation.report_renderer import render_insurance_report
 from generation.report_schema import build_report_object
 from i18n import lang_code, t
 from state.reset import DERIVED_GENERATION_KEYS, reset_generation_state
 from storage.database import init_db, save_approved_report, update_report_pdf_path
-from templates.prompts import build_system_prompt, build_user_prompt
 from theme import apply_theme
 from utils.input_hash import build_generation_input_hash
 from utils.ollama_client import DEFAULT_MODEL, query_ollama
-from utils.report_cleaning import clean_final_report_text
 from utils.text_cleaning import clean_transcript_text
 from utils.time_savings import estimate_manual_documentation_time
 from validation.input_validator import validate_generation_input
 from validation.final_report_guard import sanitize_and_validate_final_report
-from validation.report_validator import contains_internal_prompt_artifacts, validate_report
+from validation.report_validator import validate_report
 
 
 APP_DEBUG = os.environ.get("APP_DEBUG", "").lower() == "true"
@@ -144,13 +140,6 @@ def validate_current_report(patient: dict, lang: str, report_text: str) -> dict:
     result = validate_report(report_text, patient, lang)
     st.session_state.report_validation_result = result
     return result
-
-
-def _report_is_bad(report_text: str | None) -> bool:
-    if contains_internal_prompt_artifacts(report_text):
-        return True
-    text = report_text or ""
-    return len(text.split()) < 45
 
 
 def build_final_insurance_report(

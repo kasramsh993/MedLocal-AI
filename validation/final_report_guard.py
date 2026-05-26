@@ -29,6 +29,17 @@ GERMAN_FORBIDDEN_LABELS = [
     "Clinical context",
 ]
 
+# Lines that look like leaked prompt / context scaffolding (prefix match, silent drop).
+CONTEXT_LINE_PREFIXES = (
+    "Purpose:",
+    "Output language:",
+    "Specialty / Fachrichtung:",
+    "Insurance type / Versicherungsart:",
+    "Patient metadata",
+    "Clinical context:",
+    "Klinischer Kontext",
+)
+
 
 def sanitize_and_validate_final_report(report_text: str, language: str = "de") -> tuple[str, list[str]]:
     text = clean_transcript_text(report_text)
@@ -38,6 +49,11 @@ def sanitize_and_validate_final_report(report_text: str, language: str = "de") -
 
     for raw_line in text.splitlines():
         line = raw_line.strip()
+        if any(line.startswith(prefix) for prefix in CONTEXT_LINE_PREFIXES):
+            continue
+        if re.match(r"^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$", line):
+            warnings.append("Removed markdown table separator")
+            continue
         if any(marker.lower() in line.lower() for marker in FORBIDDEN_STRINGS):
             warnings.append(f"Removed forbidden artifact: {line[:40]}")
             continue
@@ -55,6 +71,8 @@ def sanitize_and_validate_final_report(report_text: str, language: str = "de") -
             "patienten- und versicherungsdaten",
             "versicherungsdaten",
             "behandlungsdatum",
+            "empfänger",
+            "empfaenger",
         }:
             if key in seen_headings:
                 warnings.append(f"Removed duplicate heading: {line}")

@@ -30,15 +30,15 @@ This is the committed step-by-step plan. GitHub issues/boards track individual t
 
 ---
 
-## Phase 2 — Dead code and clarity
+## Phase 2 — Dead code and clarity ✅
 
-| Step | Action |
-|------|--------|
-| 2.1 | Remove unused imports in `app.py` (`context_builder`, `fallback_report`, `prompts`, `report_cleaning`, etc.) |
-| 2.2 | Delete or wire orphaned modules: `context_builder.py`, `fallback_report.py`, unused `templates/prompts.py` path |
-| 2.3 | Remove legacy functions in `utils/medical_codes.py` (`suggest_codes`, `split_code_suggestions`) |
-| 2.4 | Remove unused `_report_is_bad()` in `app.py` |
-| 2.5 | Consolidate report sanitization into one module (`final_report_guard` vs `report_cleaning`) |
+| Step | Action | Status |
+|------|--------|--------|
+| 2.1 | Remove unused imports in `app.py` (`context_builder`, `fallback_report`, `prompts`, `report_cleaning`, etc.) | Done |
+| 2.2 | Delete or wire orphaned modules: `context_builder.py`, `fallback_report.py`, unused `templates/prompts.py` path | Done (files removed) |
+| 2.3 | Remove legacy functions in `utils/medical_codes.py` (`suggest_codes`, `split_code_suggestions`) | Done (`SPECIALTY_ICONS` moved into `input_panel.py`) |
+| 2.4 | Remove unused `_report_is_bad()` in `app.py` | Done |
+| 2.5 | Consolidate report sanitization into one module (`final_report_guard` vs `report_cleaning`) | Done (`final_report_guard` retained) |
 
 ---
 

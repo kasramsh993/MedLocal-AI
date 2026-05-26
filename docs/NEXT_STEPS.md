@@ -47,13 +47,13 @@ MedLocal AI is **reasonably organized for a Streamlit PoC**, not a chaotic proto
 - [x] Remove `_freeze/` from project tree
 - [x] Add `.env.example`, pin `requirements.txt`, `data/README.md`, `exports/reports/.gitkeep`
 
-#### P2 — Code cleanup (small, safe PRs)
+#### P2 — Code cleanup ✅ (2026-05-26)
 
-- [ ] Remove unused imports in `app.py` (never called: `build_generation_context`, `build_insurance_ready_fallback_report`, `build_system_prompt`, `build_user_prompt`, `clean_final_report_text`)
-- [ ] Remove `_report_is_bad()` (defined, never called)
-- [ ] Retire or reconnect: `generation/context_builder.py`, `generation/fallback_report.py`, `templates/prompts.py` (superseded by inline JSON prompt in `app.py`)
-- [ ] Remove unused `utils/report_cleaning.py` after consolidating with `validation/final_report_guard.py`
-- [ ] Trim `utils/medical_codes.py` to `SPECIALTY_ICONS` only (legacy `suggest_codes` unused)
+- [x] Remove unused imports in `app.py` (never called: `build_generation_context`, `build_insurance_ready_fallback_report`, `build_system_prompt`, `build_user_prompt`, `clean_final_report_text`)
+- [x] Remove `_report_is_bad()` (defined, never called)
+- [x] Retire or reconnect: `generation/context_builder.py`, `generation/fallback_report.py`, `templates/prompts.py` (superseded by inline JSON prompt in `app.py`)
+- [x] Remove unused `utils/report_cleaning.py` after consolidating with `validation/final_report_guard.py`
+- [x] Trim `utils/medical_codes.py` to `SPECIALTY_ICONS` only (legacy `suggest_codes` unused; moved to `components/input_panel.py`)
 
 #### P3 — Structure (optional refactor)
 
@@ -68,28 +68,28 @@ MedLocal AI is **reasonably organized for a Streamlit PoC**, not a chaotic proto
 - [ ] `AGENTS.md` for Cursor/Codex
 - [ ] CI running validation scripts
 
-### Dead code reference (for P2)
+### Dead code reference (P2 completed)
 
 | Symbol / file | Status |
 |---------------|--------|
-| `app.py` imports listed above | Imported, not called |
-| `_report_is_bad()` | Defined in `app.py`, not called |
-| `context_builder.py` | Orphaned |
-| `fallback_report.py` | Orphaned |
-| `templates/prompts.py` | Replaced by inline JSON extraction prompt |
-| `report_cleaning.py` | Duplicates guard logic; unused |
-| `medical_codes.suggest_codes` | Replaced by `icd10_search` + `billing_optimizer` |
+| `app.py` unused imports listed above | Removed |
+| `_report_is_bad()` | Removed |
+| `context_builder.py` | Removed |
+| `fallback_report.py` | Removed |
+| `templates/prompts.py` | Removed (inline JSON extraction prompt kept in `app.py`) |
+| `report_cleaning.py` | Removed (`final_report_guard` is canonical sanitizer) |
+| `medical_codes.py` | Removed; `SPECIALTY_ICONS` moved to `components/input_panel.py` |
 
 ### Duplicate logic
 
-Report sanitization exists in both `utils/report_cleaning.py` and `validation/final_report_guard.py`. Only the guard is used in the live path — merge into one implementation.
+Report sanitization is now consolidated in `validation/final_report_guard.py`.
 
 ---
 
-## Immediate next actions (after docs commit)
+## Immediate next actions
 
-1. **You:** `git remote add origin <your-github-url>` then `git push -u origin main`
-2. **Next PR:** Phase 2 dead-code removal (see [ROADMAP.md](ROADMAP.md))
+1. **Next PR:** Phase 3 structure improvements (see [ROADMAP.md](ROADMAP.md))
+2. Consider adding `__init__.py` to `validation/` and `state/` for package consistency
 3. **Ongoing:** Log completed work in [PROGRESS.md](PROGRESS.md); log failed experiments in [FAILED_ATTEMPTS.md](FAILED_ATTEMPTS.md)
 
 ---
